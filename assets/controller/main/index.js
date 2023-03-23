@@ -1,8 +1,8 @@
-import { blogs       } from "/assets/model/blogs.js"
-import { root_view   } from "/assets/view/js/root_view.js"
-import { header_view } from "/assets/view/js/header_view.js"
-import { footer_view } from "/assets/view/js/footer_view.js"
-import { blogs_view  } from "/assets/view/js/blogs_view.js"
+import { blogs       } from "./assets/model/blogs.js"
+import { root_view   } from "./assets/view/js/root_view.js"
+import { header_view } from "./assets/view/js/header_view.js"
+import { footer_view } from "./assets/view/js/footer_view.js"
+import { blogs_view  } from "./assets/view/js/blogs_view.js"
 
 // this function refreshes the index html contents
 let refresh_view = (datum) => {
