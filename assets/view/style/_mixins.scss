@@ -1,0 +1,21 @@
+@use 'variables';
+
+@mixin margin_padding($margin-1: 0, $padding-1:0){
+    margin : $margin-1;
+    padding: $padding-1;
+}
+
+@mixin border_left_right($border-left-1: variables.$triangle-dim-1, $border-right-1:variables.$triangle-dim-1){
+    border-left: $border-left-1 variables.$triangle-linetype-1 variables.$triangle-fill-1;
+    border-right: $border-right-1 variables.$triangle-linetype-1 variables.$triangle-fill-1;
+}
+
+@mixin border_top_bottom($border-top-1: variables.$triangle-dim-1, $border-bottom-1:variables.$triangle-dim-1){
+    border-top: $border-top-1 variables.$triangle-linetype-1 variables.$triangle-fill-1;
+    border-bottom: $border-bottom-1 variables.$triangle-linetype-1 variables.$triangle-fill-1;
+}
+
+@mixin width_height($width-1:0,$height-1:0){
+    width: $width-1;
+    height: $height-1;
+}

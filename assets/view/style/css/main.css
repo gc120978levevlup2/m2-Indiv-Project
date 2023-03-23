@@ -1,0 +1,564 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 700ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+body {
+  position: relative;
+  font-family: "Inter";
+  font-size: 22px;
+}
+body .content {
+  min-height: 100vh;
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+body .navigation {
+  z-index: 100;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 90px;
+  width: 100%;
+  background-color: #192140;
+}
+body .navigation .logo {
+  position: absolute;
+  bottom: 20px;
+  left: 15px;
+}
+body .navigation .desktop-security-container {
+  display: none;
+}
+body .navigation .desktop-menu-container {
+  display: none;
+}
+body .navigation .menu-container {
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+  z-index: 1;
+  cursor: pointer;
+  opacity: 1;
+}
+body .navigation .menu-container #menu-check {
+  cursor: pointer;
+  z-index: 100;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 40px;
+  height: 40px;
+  opacity: 0;
+}
+body .navigation .menu-container #menu-check:hover ~ #menu-button {
+  color: #0266FF;
+  border: 1px solid;
+  border-color: #0266FF;
+}
+body .navigation .menu-container #menu-check:checked ~ #menu-button {
+  color: #FFFFFF;
+  background-color: #0266FF;
+  border: 1px solid;
+  border-color: #0266FF;
+}
+body .navigation .menu-container #menu-check:checked ~ #menu-drop {
+  display: block;
+}
+body .navigation .menu-container .menu-button {
+  z-index: 1;
+  cursor: pointer;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  color: #9D9DB5;
+  border: 1px solid;
+  border-color: #9D9DB5;
+  border-radius: 100%;
+  height: 40px;
+  width: 40px;
+  display: flex;
+}
+body .navigation .menu-container .menu-button i {
+  margin: auto;
+}
+body .navigation .menu-container .menu-drop {
+  display: none;
+  color: white;
+  z-index: 120000;
+  cursor: pointer;
+  position: fixed;
+  top: 90px;
+  left: 0px;
+  width: 100%;
+  background-color: #192140;
+  padding: 10px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+}
+body .navigation .menu-container .menu-drop ul {
+  list-style-type: none;
+}
+body .navigation .menu-container .menu-drop ul li {
+  margin: 16px;
+}
+body .navigation .menu-container .menu-drop ul li a {
+  color: #FFFFFF;
+}
+body .navigation .menu-container .menu-drop ul li a:link {
+  text-decoration: none;
+}
+body .navigation .menu-container .menu-drop ul li a:visited {
+  text-decoration: none;
+}
+body .navigation .menu-container .menu-drop ul li a:hover {
+  text-decoration: none;
+}
+body .navigation .menu-container .menu-drop ul li a:active {
+  text-decoration: none;
+}
+body .navigation .menu-container .menu-drop .active {
+  color: #DCF10D;
+}
+body .navigation .menu-container .menu-drop .active a {
+  color: #DCF10D;
+}
+body .navigation .menu-container .menu-drop .disabled {
+  pointer-events: none;
+}
+body .navigation .menu-container .menu-drop .disabled a {
+  color: #9D9DB5;
+}
+body .card {
+  z-index: 0;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 130%;
+  position: relative;
+  width: auto;
+  height: 257px;
+  overflow: hidden;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+}
+body .card .card-image-container {
+  z-index: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 247px;
+  overflow: hidden;
+}
+body .card .card-image-container:hover ~ .image-gradient-mask {
+  display: inline;
+}
+body .card .image-gradient-mask {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+  height: calc(100% - 30px);
+  width: 100%;
+  background: linear-gradient(180deg, #192140 0%, rgba(25, 33, 64, 0) 70.8%);
+}
+body .card .image-gradient-mask .card-x {
+  cursor: pointer;
+  z-index: 2000;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 20px;
+  height: 20px;
+  border: 1px solid;
+  color: #9D9DB5;
+  border-color: #9D9DB5;
+  border-radius: 100%;
+}
+body .card .image-gradient-mask .card-x span {
+  position: relative;
+  top: -1px;
+  right: -3px;
+}
+body .card .image-gradient-mask .card-x:hover {
+  display: flex;
+  color: #0266FF;
+  border-color: #0266FF;
+}
+body .card .image-gradient-mask .card-x:active {
+  color: #FFFFFF;
+  border-color: #0266FF;
+  background-color: #0266FF;
+}
+body .card .image-gradient-mask:hover {
+  display: inline;
+}
+body .card .card-info {
+  padding-left: 20px;
+  padding-right: 20px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: auto;
+  color: #10131C;
+  background-color: #F8F9FC;
+}
+body .card .card-info .card-check {
+  color: #9D9DB5;
+  margin-top: 10px;
+  display: none;
+}
+body .card .card-info .card-check:hover {
+  color: #0266FF;
+  cursor: pointer;
+}
+body .card .card-info .card-check:active {
+  color: #192140;
+}
+body .card .card-info .card-check2 {
+  color: #192140;
+  margin-top: 10px;
+}
+body .card .card-info .card-check2:hover {
+  cursor: pointer;
+}
+body .card .card-info .card-check2:active {
+  color: #192140;
+}
+body .card .card-info .card-title {
+  margin-top: 10px;
+  overflow-wrap: normal;
+  width: 190px;
+}
+body .card .card-info .card-bottom {
+  font-weight: 400;
+  font-size: 12px;
+  color: #9D9DB5;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100%;
+  margin-top: 10px;
+  border-top: 1px solid;
+  border-color: #9D9DB5;
+  display: flex;
+  justify-content: space-between;
+}
+body .card .card-info .card-bottom .card-date {
+  width: -moz-fit-content;
+  width: fit-content;
+  border: 1px solid;
+  border-color: #9D9DB5;
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+body .card .card-info .card-bottom .blue-heart {
+  color: #0266FF;
+}
+body .card .card-info .card-bottom .grey-heart:hover {
+  color: #0266FF;
+  cursor: pointer;
+}
+body .card .card-info .card-bottom .card-likes {
+  float: right;
+}
+body .card .card-info:hover > .card-check {
+  display: inline-block;
+}
+body .d-none {
+  display: none;
+}
+body .d-block {
+  display: inline-block;
+}
+body .button {
+  color: #9D9DB5;
+  height: 48px;
+  border: 1px solid;
+  border-color: #9D9DB5;
+  border-radius: 48px;
+  display: flex;
+}
+body .button span {
+  margin: auto;
+}
+body .button:hover {
+  color: #0266FF;
+  border-color: #0266FF;
+}
+body .button:active {
+  color: #FFFFFF;
+  border-color: #0266FF;
+  background-color: #0266FF;
+}
+body .disabled {
+  pointer-events: none;
+}
+body .disabled a {
+  color: #9D9DB5;
+}
+body .footer1 {
+  background-color: #10131C;
+  width: 100%;
+  padding: 0px 15px;
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 130%;
+}
+body .footer1 div {
+  margin-top: 60px;
+  margin-bottom: 40px;
+}
+body .footer1 div span {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 130%;
+  color: #FFFFFF;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  margin-left: 8px;
+}
+body .footer1 div span div span {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 130%;
+  color: #9D9DB5;
+}
+body .footer1 div ul {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  list-style-type: none;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 130%;
+  color: #D7F8FF;
+}
+body .footer1 div li {
+  float: left;
+  margin-right: 20px;
+}
+
+@media only screen and (min-width: 496px) {
+  body #data1 {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+  }
+}
+@media only screen and (min-width: 768px) {
+  body #data1 {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+  }
+}
+@media only screen and (min-width: 1024px) {
+  body #data1 {
+    padding-left: 65px;
+    padding-right: 65px;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+  }
+  body .card {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 130%;
+    height: 300px;
+  }
+  body .card .card-info .card-title {
+    width: 100%;
+  }
+  body .card .image-gradient-mask .card-x {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  body .card .image-gradient-mask .card-x span {
+    position: relative;
+    top: -4px;
+    right: -1px;
+  }
+  body .navigation {
+    height: 84px;
+  }
+  body .navigation .logo {
+    position: absolute;
+    bottom: 29px;
+    left: 80px;
+  }
+  body .navigation .desktop-security-container {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    height: 100%;
+    display: inline;
+    position: absolute;
+    right: 80px;
+    bottom: 0;
+  }
+  body .navigation .desktop-security-container ul {
+    list-style-type: none;
+    margin-top: 15px;
+    padding: 0;
+    overflow: hidden;
+  }
+  body .navigation .desktop-security-container li {
+    height: 100%;
+    float: left;
+  }
+  body .navigation .desktop-security-container li .button {
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #9D9DB5;
+    height: 48px;
+    border: 1px solid;
+    border-color: #9D9DB5;
+    border-radius: 48px;
+    display: flex;
+  }
+  body .navigation .desktop-security-container li .button span {
+    margin: auto;
+  }
+  body .navigation .desktop-security-container li .button:hover {
+    cursor: pointer;
+    color: #0266FF;
+    border-color: #0266FF;
+  }
+  body .navigation .desktop-security-container li .button:active {
+    color: #FFFFFF;
+    border-color: #0266FF;
+    background-color: #0266FF;
+  }
+  body .navigation .desktop-security-container li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    text-decoration: none;
+  }
+  body .navigation .desktop-security-container li a:hover {
+    background-color: #111111;
+  }
+  body .navigation .desktop-security-container .active {
+    color: #DCF10D;
+  }
+  body .navigation .desktop-security-container .active a {
+    color: #DCF10D;
+  }
+  body .navigation .desktop-security-container .disabled {
+    pointer-events: none;
+  }
+  body .navigation .desktop-security-container .disabled a {
+    color: #9D9DB5;
+  }
+  body .navigation .desktop-menu-container {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    height: 100%;
+    display: inline;
+    position: absolute;
+    right: 304px;
+    bottom: 0;
+  }
+  body .navigation .desktop-menu-container ul {
+    list-style-type: none;
+    margin-top: 15px;
+    padding: 0;
+    overflow: hidden;
+  }
+  body .navigation .desktop-menu-container li {
+    height: 100%;
+    float: left;
+  }
+  body .navigation .desktop-menu-container li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    text-decoration: none;
+  }
+  body .navigation .desktop-menu-container li a:hover {
+    background-color: #111111;
+  }
+  body .navigation .desktop-menu-container .active {
+    color: #DCF10D;
+  }
+  body .navigation .desktop-menu-container .active a {
+    color: #DCF10D;
+  }
+  body .navigation .desktop-menu-container .disabled {
+    pointer-events: none;
+  }
+  body .navigation .desktop-menu-container .disabled a {
+    color: #9D9DB5;
+  }
+  body .navigation .menu-container {
+    display: none;
+  }
+  body .footer1 {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    background-color: #10131C;
+    width: 100%;
+    padding: 0px 80px;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 130%;
+  }
+  body .footer1 div span {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 130%;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+    margin-left: 8px;
+  }
+  body .footer1 div span div span {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 130%;
+    color: #9D9DB5;
+  }
+  body .footer1 div ul {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    list-style-type: none;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 130%;
+    color: #D7F8FF;
+  }
+  body .footer1 div li {
+    float: left;
+    margin-right: 20px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  body #data1 {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+  }
+  body .navigation {
+    height: 84px;
+  }
+}
+@media only screen and (min-width: 2560px) {
+  body #data1 {
+    display: grid;
+    grid-template-columns: repeat(10, auto);
+  }
+  body .navigation {
+    height: 84px;
+  }
+}/*# sourceMappingURL=main.css.map */
